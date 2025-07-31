@@ -351,7 +351,7 @@ export default function Admin() {
                             <div className="flex items-center space-x-2">
                               <Label className="text-sm">Status:</Label>
                               <Select
-                                value={order.status}
+                                value={order.status || undefined}
                                 onValueChange={(value) => handleStatusUpdate(order.id, value)}
                               >
                                 <SelectTrigger className="w-40">
