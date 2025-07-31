@@ -163,8 +163,11 @@ export class MemStorage implements IStorage {
   async createUser(insertUser: InsertUser): Promise<User> {
     const id = randomUUID();
     const user: User = { 
-      ...insertUser, 
-      id, 
+      id,
+      name: insertUser.name,
+      email: insertUser.email ?? null,
+      phone: insertUser.phone ?? null,
+      googleId: insertUser.googleId ?? null,
       createdAt: new Date(),
       isAdmin: false 
     };
@@ -192,7 +195,12 @@ export class MemStorage implements IStorage {
 
   async createCategory(insertCategory: InsertCategory): Promise<Category> {
     const id = randomUUID();
-    const category: Category = { ...insertCategory, id };
+    const category: Category = { 
+      id,
+      name: insertCategory.name,
+      description: insertCategory.description ?? null,
+      image: insertCategory.image ?? null
+    };
     this.categories.set(id, category);
     return category;
   }
@@ -226,8 +234,18 @@ export class MemStorage implements IStorage {
   }
 
   async createMenuItem(insertItem: InsertMenuItem): Promise<MenuItem> {
-    const id = randomUUID();
-    const item: MenuItem = { ...insertItem, id };
+    const id = randomUUID(); const item: MenuItem = { 
+      id,
+      name: insertItem.name,
+      description: insertItem.description,
+      price: insertItem.price,
+      image: insertItem.image,
+      categoryId: insertItem.categoryId ?? null,
+      ingredients: insertItem.ingredients ?? null,
+      recipe: insertItem.recipe ?? null,
+      isAvailable: insertItem.isAvailable ?? null,
+      allergens: insertItem.allergens ?? null
+    };
     this.menuItems.set(id, item);
     return item;
   }
@@ -267,8 +285,17 @@ export class MemStorage implements IStorage {
     const billNumber = `BILL${Date.now()}`;
     const order: Order = { 
       ...insertOrder, 
-      id, 
+       id,
+      userId: insertOrder.userId ?? null,
+      customerName: insertOrder.customerName,
+      couponNumber: insertOrder.couponNumber ?? null,
       billNumber,
+      items: insertOrder.items,
+      totalAmount: insertOrder.totalAmount,
+      paymentMethod: insertOrder.paymentMethod,
+      paymentStatus: insertOrder.paymentStatus ?? null,
+      specialInstructions: insertOrder.specialInstructions ?? null,
+      status: insertOrder.status ?? null,
       createdAt: new Date() 
     };
     this.orders.set(id, order);
@@ -298,8 +325,11 @@ export class MemStorage implements IStorage {
   async createFeedback(insertFeedback: InsertFeedback): Promise<Feedback> {
     const id = randomUUID();
     const feedbackItem: Feedback = { 
-      ...insertFeedback, 
-      id, 
+      id,
+      orderId: insertFeedback.orderId ?? null,
+      customerName: insertFeedback.customerName,
+      rating: insertFeedback.rating,
+      comment: insertFeedback.comment ?? null,
       createdAt: new Date() 
     };
     this.feedback.set(id, feedbackItem);
@@ -318,8 +348,9 @@ export class MemStorage implements IStorage {
   async createCoupon(insertCoupon: InsertCoupon): Promise<Coupon> {
     const id = randomUUID();
     const coupon: Coupon = { 
-      ...insertCoupon, 
-      id, 
+       id,
+      code: insertCoupon.code,
+      isUsed: insertCoupon.isUsed ?? null,
       createdAt: new Date() 
     };
     this.coupons.set(id, coupon);
@@ -339,8 +370,9 @@ export class MemStorage implements IStorage {
   async createNotification(insertNotification: InsertNotification): Promise<Notification> {
     const id = randomUUID();
     const notification: Notification = { 
-      ...insertNotification, 
-      id, 
+    id,
+      orderId: insertNotification.orderId ?? null,
+      message: insertNotification.message,
       sentAt: new Date() 
     };
     this.notifications.set(id, notification);
