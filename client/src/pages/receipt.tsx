@@ -80,7 +80,7 @@ Tax (8%): $${tax.toFixed(2)}
 TOTAL: $${order.totalAmount}
 
 Payment: ${order.paymentMethod.toUpperCase()}
-Status: ${order.paymentStatus.toUpperCase()}
+Status: ${order.paymentStatus ? order.paymentStatus.toUpperCase() : 'PENDING'}
 
 ${order.specialInstructions ? `Special Instructions:\n${order.specialInstructions}\n\n` : ''}
 Thank you for dining with us!
