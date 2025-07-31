@@ -22,7 +22,7 @@ export default function HeroSection() {
   }, []);
 
   useEffect(() => {
-    if (config?.youtubeVideoUrl) {
+   if (config && 'youtubeVideoUrl' in config && config.youtubeVideoUrl) {
       setYoutubeUrl(config.youtubeVideoUrl);
     }
   }, [config]);
