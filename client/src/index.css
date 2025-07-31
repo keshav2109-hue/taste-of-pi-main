@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(47, 9%, 18%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(47, 9%, 18%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(47, 9%, 18%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(14, 77%, 62%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(47, 9%, 18%);
+  --radius: 0.5rem;
+  
+  /* Custom colors for Taste of π */
+  --terracotta: hsl(14, 77%, 62%);
+  --warm-cream: hsl(46, 40%, 96%);
+  --sage: hsl(144, 25%, 60%);
+  --charcoal: hsl(196, 20%, 24%);
+  --soft-white: hsl(46, 63%, 98%);
+}
+
+.dark {
+  --background: hsl(196, 20%, 24%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(196, 15%, 15%);
+  --muted-foreground: hsl(196, 5%, 64%);
+  --popover: hsl(196, 20%, 24%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(196, 15%, 20%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(196, 15%, 35%);
+  --input: hsl(196, 15%, 35%);
+  --primary: hsl(14, 77%, 62%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(196, 15%, 15%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(196, 15%, 15%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(196, 5%, 83%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  .text-terracotta {
+    color: hsl(14, 77%, 62%);
+  }
+  
+  .bg-terracotta {
+    background-color: hsl(14, 77%, 62%);
+  }
+  
+  .border-terracotta {
+    border-color: hsl(14, 77%, 62%);
+  }
+  
+  .text-sage {
+    color: hsl(144, 25%, 60%);
+  }
+  
+  .bg-sage {
+    background-color: hsl(144, 25%, 60%);
+  }
+  
+  .text-charcoal {
+    color: hsl(196, 20%, 24%);
+  }
+  
+  .bg-charcoal {
+    background-color: hsl(196, 20%, 24%);
+  }
+  
+  .bg-warm-cream {
+    background-color: hsl(46, 40%, 96%);
+  }
+  
+  .bg-soft-white {
+    background-color: hsl(46, 63%, 98%);
+  }
+
+  .dark .text-charcoal {
+    color: hsl(0, 0%, 98%);
+  }
+}
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+}
